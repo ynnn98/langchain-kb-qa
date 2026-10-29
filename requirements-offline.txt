@@ -1,0 +1,6 @@
+# 离线增强依赖：本地 HuggingFace Embedding（BAAI/bge-small-zh-v1.5）
+# 安装: pip install -r requirements-offline.txt
+# 用途: EMBEDDING_PROVIDER=huggingface 时实现完全离线（Ollama 本地大模型 + 本地向量化）
+-r requirements.txt
+langchain-huggingface>=0.1,<0.2
+sentence-transformers>=2.7
