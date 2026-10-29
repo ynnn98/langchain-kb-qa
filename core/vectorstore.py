@@ -39,7 +39,18 @@ def doc_count(vs) -> int:
 
 
 def clear_vectorstore(s: Settings) -> None:
-    """清空知识库：直接删除 Chroma 持久化目录。"""
+    """清空知识库。
+
+    优先通过 chromadb 客户端删除集合（Web 界面运行中适用，避免 Windows 下
+    sqlite 文件被占用导致删除失败）；再尽力清理持久化目录本身。
+    """
     path = Path(s.chroma_dir)
+    try:
+        import chromadb
+
+        client = chromadb.PersistentClient(path=str(path))
+        client.delete_collection(s.collection_name)
+    except Exception:
+        pass
     if path.exists():
-        shutil.rmtree(path)
+        shutil.rmtree(path, ignore_errors=True)

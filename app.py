@@ -100,7 +100,10 @@ if uploaded_files:
         except Exception as e:
             st.error(f"处理《{upload.name}》失败：{e}")
         finally:
-            Path(tmp_path).unlink(missing_ok=True)
+            try:
+                Path(tmp_path).unlink(missing_ok=True)
+            except OSError:
+                pass
     st.rerun()
 
 # ========================= 对话界面 =========================
