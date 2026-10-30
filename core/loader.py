@@ -49,10 +49,11 @@ def split_documents(docs: list[Document], s: Settings) -> list[Document]:
 
 def ingest_file(file_path: str | Path, s: Settings) -> tuple[int, int]:
     """加载并切分单个文件（供 CLI 使用；Web 端由 app.py 直接处理上传字节流）。"""
+    from core.llm import get_embeddings
     from core.vectorstore import add_documents, get_vectorstore
 
     docs = load_document(file_path)
     splits = split_documents(docs, s)
-    vs = get_vectorstore(s)
+    vs = get_vectorstore(s, get_embeddings(s))
     add_documents(vs, splits)
     return len(docs), len(splits)

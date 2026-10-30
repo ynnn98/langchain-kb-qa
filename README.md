@@ -16,6 +16,10 @@
 
 整个项目基于 LangChain 生态构建（Document Loaders、Text Splitters、Chroma VectorStore、LCEL 链式编排），支持 **在线大模型**（智谱 / DeepSeek / 通义 / Kimi / OpenAI 等）与 **完全离线方案**（Ollama 本地大模型 + 本地 BGE 向量化模型），并提供 Streamlit Web 界面与命令行两种使用方式。
 
+**界面预览**——上传文档后即可用自然语言提问，每条回答都可展开查看引用来源：
+
+![SmartKB Web 界面：知识库问答与引用来源](docs/screenshot-web.png)
+
 ## 二、功能特性
 
 | 功能 | 说明 |
@@ -139,6 +143,8 @@ langchain-kb-qa/
 │   └── test_smoke.py          # 离线冒烟测试（假模型，无需 API Key）
 ├── data/samples/
 │   └── langchain_intro.md     # 内置示例知识库文档
+├── docs/
+│   └── screenshot-web.png     # Web 界面运行截图
 ├── requirements.txt           # 基础依赖
 ├── requirements-offline.txt   # 完全离线增强依赖（本地 Embedding）
 ├── .env.example               # 配置模板（多厂商示例）
