@@ -2,8 +2,7 @@
 
 > 基于 **LangChain** 框架开发的 RAG（检索增强生成）智能应用：上传你的文档，即可用自然语言向知识库提问，回答有据可查、支持引用溯源。
 
-**🌐 开源仓库链接**：<https://github.com/your-username/langchain-kb-qa>
-*（提交作业前请替换为你推送后的实际仓库地址）*
+**🌐 开源仓库链接**：<https://github.com/ynnn98/langchain-kb-qa>
 
 ---
 
@@ -66,7 +65,7 @@ flowchart LR
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/your-username/langchain-kb-qa.git
+git clone https://github.com/ynnn98/langchain-kb-qa.git
 cd langchain-kb-qa
 
 # 2. 创建虚拟环境（可选但推荐）
